@@ -23,4 +23,10 @@ struct Article {
         self.examples = nil
     }
     
+    init(_ expression: String, _ translation: String, examples: [Article]) {
+        self.expression = expression
+        self.translation = translation
+        self.examples = examples
+    }
+    
 }

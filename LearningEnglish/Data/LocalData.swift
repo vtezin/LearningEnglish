@@ -10,12 +10,14 @@ import Foundation
 
 struct LocalData {
     
-    var articles = [Article]()
+    private(set) var articles = [Article]()
     
     init() {
+        
+        var examples = [Article]()
+        
         articles.append(Article("above", "выше"))
         articles.append(Article("accordingly", "соответственно"))
-        
         articles.append(Article("addition", "сложение"))
         articles.append(Article("affect", "влияние, эффект"))
         articles.append(Article("affine", "родственный, подобный"))
@@ -23,7 +25,11 @@ struct LocalData {
         articles.append(Article("ahold", "захват"))
         articles.append(Article("almost", "почти"))
         articles.append(Article("also", "также"))
-        articles.append(Article("always", "почти"))
+        
+        examples.removeAll()
+        examples.append(Article("almost always", "почти всегда"))
+        
+        articles.append(Article("always", "почти", examples: examples))
         
     }
     
