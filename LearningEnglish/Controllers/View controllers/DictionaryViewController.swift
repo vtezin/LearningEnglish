@@ -50,3 +50,17 @@ extension DictionaryViewController: UITableViewDataSource {
     
 }
 
+extension DictionaryViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard segue.identifier == "showArticleSegue" else {return}
+        guard let articleViewController = segue.destination as? ArticleViewController else { return }
+        guard let indexOfSelectedCell = articlesList.indexPathForSelectedRow else {return}
+        
+        articleViewController.article = articles[indexOfSelectedCell.row]
+        
+        
+    }
+    
+}
