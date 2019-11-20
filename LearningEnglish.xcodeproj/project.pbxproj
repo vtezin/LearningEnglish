@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52B22F8F238574D000C4BAA5 /* CellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B22F8E238574D000C4BAA5 /* CellController.swift */; };
 		52C0F848238553E7009C35F0 /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0F847238553E7009C35F0 /* DictionaryViewController.swift */; };
 		52D9780B2385268A00D06061 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D9780A2385268A00D06061 /* AppDelegate.swift */; };
 		52D9780D2385268A00D06061 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D9780C2385268A00D06061 /* SceneDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52B22F8E238574D000C4BAA5 /* CellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellController.swift; sourceTree = "<group>"; };
 		52C0F847238553E7009C35F0 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
 		52D978072385268A00D06061 /* LearningEnglish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningEnglish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D9780A2385268A00D06061 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				52C0F847238553E7009C35F0 /* DictionaryViewController.swift */,
+				52B22F8E238574D000C4BAA5 /* CellController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52B22F8F238574D000C4BAA5 /* CellController.swift in Sources */,
 				52D9780B2385268A00D06061 /* AppDelegate.swift in Sources */,
 				52D978152385268A00D06061 /* LearningEnglish.xcdatamodeld in Sources */,
 				52D9782A23852AD400D06061 /* LocalData.swift in Sources */,

@@ -14,8 +14,10 @@ class DictionaryViewController: UIViewController {
     @IBOutlet weak var articlesList: UITableView!
     
     //tied controller with model
-    let DataController = LocalData()
+    let dataController = LocalData()
+    let cellController = CellController()
     
+    /// articles of dictionary
     var articles = [Article]()
     
     
@@ -26,7 +28,25 @@ extension DictionaryViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        articles = DataController.loadData()
+        articles = dataController.loadData()
+        articlesList.dataSource = self
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension DictionaryViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return articles.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = articlesList.dequeueReusableCell(withIdentifier: "ArticleCell")!
+        
+        let article = articles[indexPath.row]
+        cellController.configureCell(cell, with: article)
+        return cell
     }
     
 }
+
