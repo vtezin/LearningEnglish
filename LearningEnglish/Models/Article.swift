@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// article with a translation of an English word of expression
+/// article with a translation of an English word or expression to Russian
 struct Article {
     /// expression for translating
     let expression: String
