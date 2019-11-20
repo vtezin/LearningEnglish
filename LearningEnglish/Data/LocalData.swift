@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct LocalData {
+class LocalData {
     
-    private(set) var articles = [Article]()
-    
-    init() {
+    func loadData() -> [Article] {
+        
+        var articles = [Article]()
         
         var examples = [Article]()
         
@@ -30,6 +30,8 @@ struct LocalData {
         examples.append(Article("almost always", "почти всегда"))
         
         articles.append(Article("always", "почти", examples: examples))
+        
+        return articles
         
     }
     

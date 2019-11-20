@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52C0F848238553E7009C35F0 /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0F847238553E7009C35F0 /* DictionaryViewController.swift */; };
 		52D9780B2385268A00D06061 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D9780A2385268A00D06061 /* AppDelegate.swift */; };
 		52D9780D2385268A00D06061 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D9780C2385268A00D06061 /* SceneDelegate.swift */; };
-		52D9780F2385268A00D06061 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D9780E2385268A00D06061 /* ViewController.swift */; };
 		52D978122385268A00D06061 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D978102385268A00D06061 /* Main.storyboard */; };
 		52D978152385268A00D06061 /* LearningEnglish.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52D978132385268A00D06061 /* LearningEnglish.xcdatamodeld */; };
 		52D978172385269000D06061 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52D978162385269000D06061 /* Assets.xcassets */; };
@@ -19,10 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52C0F847238553E7009C35F0 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
 		52D978072385268A00D06061 /* LearningEnglish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningEnglish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D9780A2385268A00D06061 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52D9780C2385268A00D06061 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		52D9780E2385268A00D06061 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		52D978112385268A00D06061 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52D978142385268A00D06061 /* LearningEnglish.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LearningEnglish.xcdatamodel; sourceTree = "<group>"; };
 		52D978162385269000D06061 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 		52D978222385270C00D06061 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				52D9780E2385268A00D06061 /* ViewController.swift */,
+				52C0F847238553E7009C35F0 /* DictionaryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -195,11 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52D9780F2385268A00D06061 /* ViewController.swift in Sources */,
 				52D9780B2385268A00D06061 /* AppDelegate.swift in Sources */,
 				52D978152385268A00D06061 /* LearningEnglish.xcdatamodeld in Sources */,
 				52D9782A23852AD400D06061 /* LocalData.swift in Sources */,
 				52D9780D2385268A00D06061 /* SceneDelegate.swift in Sources */,
+				52C0F848238553E7009C35F0 /* DictionaryViewController.swift in Sources */,
 				52D97827238527B800D06061 /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
