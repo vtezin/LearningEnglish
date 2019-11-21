@@ -17,10 +17,9 @@ class DictionaryViewController: UIViewController {
     let dataController = LocalData()
     let cellController = CellController()
     
-    /// articles of dictionary
-    var articles = [Article]()
-    
-    
+    /// dictionary
+    let dictionary = LanguageDictionary(language: "English", articles: [Article]())
+        
 }
 
 // MARK: - UIViewController
@@ -28,7 +27,7 @@ extension DictionaryViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        articles = dataController.loadData()
+        dictionary.articles = dataController.loadData()
         articlesList.dataSource = self
     }
 }
@@ -37,13 +36,13 @@ extension DictionaryViewController {
 extension DictionaryViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles.count
+        return dictionary.articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = articlesList.dequeueReusableCell(withIdentifier: "ArticleCell")!
         
-        let article = articles[indexPath.row]
+        let article = dictionary.articles[indexPath.row]
         cellController.configureCell(cell, with: article)
         return cell
     }
@@ -58,7 +57,7 @@ extension DictionaryViewController {
         guard let articleViewController = segue.destination as? ArticleViewController else { return }
         guard let indexOfSelectedCell = articlesList.indexPathForSelectedRow else {return}
         
-        articleViewController.article = articles[indexOfSelectedCell.row]
+        articleViewController.article = dictionary.articles[indexOfSelectedCell.row]
         
         
     }

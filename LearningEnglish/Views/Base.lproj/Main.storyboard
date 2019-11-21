@@ -43,7 +43,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="pEN-Vu-g4l" kind="showDetail" identifier="showArticleSegue" id="kFY-WH-6Zg"/>
+                                            <segue destination="pEN-Vu-g4l" kind="show" identifier="showArticleSegue" id="45c-kW-UUX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -58,14 +58,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Dictionary" image="dictionary" id="v2y-ex-YuB"/>
+                    <tabBarItem key="tabBarItem" title="Dictionary" image="dictionary" id="gvw-Pq-bPl"/>
+                    <navigationItem key="navigationItem" id="V99-1T-XTc"/>
                     <connections>
                         <outlet property="articlesList" destination="df1-5R-iM7" id="P8s-iz-kTN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="60" y="660"/>
+            <point key="canvasLocation" x="1057.5" y="659.15492957746483"/>
         </scene>
         <!--Article View Controller-->
         <scene sceneID="hro-7W-qXC">
@@ -108,6 +109,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n7I-sg-9UK"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Qex-YP-fqi"/>
                     <connections>
                         <outlet property="examplesLabel" destination="xsi-Yo-aLI" id="yms-DG-mCq"/>
                         <outlet property="expressionLabel" destination="8hB-1A-GgY" id="xGn-cs-6IQ"/>
@@ -116,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ulN-pk-JHn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799" y="704"/>
+            <point key="canvasLocation" x="1796.25" y="703.52112676056333"/>
         </scene>
         <!--Game-->
         <scene sceneID="tXG-8p-Wyd">
@@ -159,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Myo-ql-ft3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1796" y="643"/>
+            <point key="canvasLocation" x="2791.875" y="642.25352112676057"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6UN-Gl-jCM">
@@ -172,7 +174,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="G6Y-fX-FCB"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Y4w-8L-yRI"/>
                         <segue destination="Aeu-ao-jJq" kind="relationship" relationship="viewControllers" id="8aD-JG-ew9"/>
                     </connections>
                 </tabBarController>

@@ -21,6 +21,7 @@ class ArticleViewController: UIViewController {
 extension ArticleViewController {
     
     func updateUI() {
+        title = article.expression
         expressionLabel.text = article.expression
         translationLabel.text = article.translation
         examplesLabel.text = ""
