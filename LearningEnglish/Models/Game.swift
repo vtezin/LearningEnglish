@@ -13,29 +13,52 @@ class Game {
     /// dictionary of the game
     let dictionary: LanguageDictionary
     /// count of answer variants
-    let countOfWrongAnswers: Int
+    let countOfAdditionalAnswersVariants: Int
+    private(set) var result: Result
+    private(set) var currentQuestion: Article?
+    
     
     init(dictionary: LanguageDictionary, countOfAnswerVariants: Int) {
         self.dictionary = dictionary
-        self.countOfWrongAnswers = countOfAnswerVariants
+        self.countOfAdditionalAnswersVariants = countOfAnswerVariants
+        self.result = Result(countOfRightAnswers: 0, countOfWrongAnswers: 0, articlesOfWrongAnswers: [Article]())
     }
-
-    func generateRandomQuestion() -> (Article, [Article]) {
+    
+    struct Result {
+        var countOfRightAnswers: Int
+        var countOfWrongAnswers: Int
+        var articlesOfWrongAnswers: [Article]
+    }
+    
+    func generateCurrentQuestion() -> [Article] {
         
-        let questionArticle = dictionary.articles.randomElement()!
+        let currentQuestion = dictionary.articles.randomElement()!
         
         var answerVariants = [Article]()
-        answerVariants.append(questionArticle)
+        answerVariants.append(currentQuestion)
         
-        for _ in 1...countOfWrongAnswers {
+        for _ in 1...countOfAdditionalAnswersVariants {
             let randomArticle = dictionary.articles.randomElement()!
             answerVariants.append(randomArticle)
         }
         
         answerVariants.shuffle()
         
-        return (questionArticle, answerVariants)
+        return answerVariants
+        
     }
     
+    func checkAnswerAndUpdateResult(answer: Article) -> Bool {
+
+        if answer == currentQuestion {
+            result.countOfRightAnswers += 1
+            return true
+        } else {
+            result.countOfWrongAnswers += 1
+            result.articlesOfWrongAnswers.append(answer)
+            return false
+        }
+
+    }
     
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 /// article with a translation of an English word or expression to Russian
-struct Article {
+struct Article: Equatable {
     /// expression for translating
     let expression: String
     /// translation to Russian
