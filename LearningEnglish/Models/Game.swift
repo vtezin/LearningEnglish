@@ -14,22 +14,27 @@ class Game {
     let dictionary: LanguageDictionary
     /// count of answer variants
     let countOfAdditionalAnswersVariants: Int
+    /// struct whith result of the game
     private(set) var result: Result
+    /// current (last generated) question
     private(set) var currentQuestion: Article?
-    
     
     init(dictionary: LanguageDictionary, countOfAnswerVariants: Int) {
         self.dictionary = dictionary
         self.countOfAdditionalAnswersVariants = countOfAnswerVariants
-        self.result = Result(countOfRightAnswers: 0, countOfWrongAnswers: 0, articlesOfWrongAnswers: [Article]())
+        self.result = Result(articlesOfWrongAnswers: [Article](),
+                             articlesOfRightAnswers: [Article]())
     }
     
+    /// structure whith result of the game
     struct Result {
-        var countOfRightAnswers: Int
-        var countOfWrongAnswers: Int
+        var countOfRightAnswers: Int {return articlesOfRightAnswers.count}
+        var countOfWrongAnswers: Int {return articlesOfWrongAnswers.count}
         var articlesOfWrongAnswers: [Article]
+        var articlesOfRightAnswers: [Article]
     }
     
+    /// generating next random question
     func generateCurrentQuestion() -> [Article] {
         
         let currentQuestion = dictionary.articles.randomElement()!
@@ -48,13 +53,14 @@ class Game {
         
     }
     
+    /// Checking answer & updating result
+    /// - Parameter answer: answer from user
     func checkAnswerAndUpdateResult(answer: Article) -> Bool {
 
         if answer == currentQuestion {
-            result.countOfRightAnswers += 1
+            result.articlesOfRightAnswers.append(answer)
             return true
         } else {
-            result.countOfWrongAnswers += 1
             result.articlesOfWrongAnswers.append(answer)
             return false
         }
