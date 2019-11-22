@@ -26,6 +26,13 @@ class Game {
                              articlesOfRightAnswers: [Article]())
     }
     
+    var unusedArticles: [Article] {
+        
+        return dictionary.articles.filter{!result.articlesOfRightAnswers.contains($0)
+            && !result.articlesOfWrongAnswers.contains($0)}
+        
+    }
+    
     /// structure whith result of the game
     struct Result {
         var countOfRightAnswers: Int {return articlesOfRightAnswers.count}
@@ -38,21 +45,23 @@ class Game {
     
     /// generating next random question
     func generateCurrentQuestion() -> [Article] {
+
+        //TODO: implement checking count of unused articles
         
-        if let currentQuestion = dictionary.articles.randomElement() {
+        if let currentQuestion = unusedArticles.randomElement() {
             self.currentQuestion = currentQuestion
         } else {
             return [Article]()
         }
         
-        var articlesWithoutUsed = dictionary.articles.filter{$0 != currentQuestion}
+        var articlesWithoutCurrentQuestion = unusedArticles.filter{$0 != currentQuestion}
         
         var answerVariants = [Article]()
         answerVariants.append(self.currentQuestion!)
         
         for _ in 1...countOfAdditionalAnswersVariants {
-            let randomArticle = articlesWithoutUsed.randomElement()!
-            answerVariants.append(articlesWithoutUsed.remove(at: articlesWithoutUsed.firstIndex(of: randomArticle)!))
+            let randomArticle = articlesWithoutCurrentQuestion.randomElement()!
+            answerVariants.append(articlesWithoutCurrentQuestion.remove(at: articlesWithoutCurrentQuestion.firstIndex(of: randomArticle)!))
         }
         
         answerVariants.shuffle()
@@ -63,14 +72,12 @@ class Game {
     
     /// Checking answer & updating result
     /// - Parameter answer: answer given for current question
-    func checkAnswerAndUpdateResult(answer: Article) -> Bool {
+    func checkAnswerAndUpdateResult(answer: Article) {
 
         if answer == currentQuestion {
             result.articlesOfRightAnswers.append(answer)
-            return true
         } else {
             result.articlesOfWrongAnswers.append(answer)
-            return false
         }
 
     }
