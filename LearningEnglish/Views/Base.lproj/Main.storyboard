@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -129,13 +130,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5w-4l-cYj">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="36"/>
+                                <rect key="frame" x="0.0" y="16" width="320" height="36"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" red="0.26378506419999997" green="0.68426752089999998" blue="0.73499721289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vGq-SY-IeM">
-                                <rect key="frame" x="8" y="44" width="304" height="423"/>
+                                <rect key="frame" x="8" y="60" width="304" height="407"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AnswerCell" textLabel="YF2-UY-TY6" style="IBUITableViewCellStyleDefault" id="ep6-Fw-H0h">
@@ -157,26 +158,38 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1G-he-gbQ">
-                                <rect key="frame" x="263" y="483" width="41" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Next"/>
-                                <connections>
-                                    <action selector="nextQuestionTouched:" destination="Aeu-ao-jJq" eventType="touchUpInside" id="PAZ-kb-zIL"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vyV-s2-AgD">
+                                <rect key="frame" x="16" y="475" width="288" height="36"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👍 - 0   👎 - 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHy-jY-DYA">
+                                        <rect key="frame" x="0.0" y="6" width="216.5" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1G-he-gbQ">
+                                        <rect key="frame" x="224.5" y="0.0" width="63.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="nextQuestionTouched:" destination="Aeu-ao-jJq" eventType="touchUpInside" id="PAZ-kb-zIL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="vyV-s2-AgD" firstAttribute="top" secondItem="vGq-SY-IeM" secondAttribute="bottom" constant="8" id="1qK-pl-Ocf"/>
                             <constraint firstItem="5ko-RE-y4R" firstAttribute="trailing" secondItem="vGq-SY-IeM" secondAttribute="trailing" constant="8" id="5GP-6v-gWy"/>
-                            <constraint firstItem="p1G-he-gbQ" firstAttribute="top" secondItem="vGq-SY-IeM" secondAttribute="bottom" constant="16" id="5hy-xH-37V"/>
-                            <constraint firstItem="p1G-he-gbQ" firstAttribute="bottom" secondItem="5ko-RE-y4R" secondAttribute="bottom" id="9gK-BH-CH2"/>
                             <constraint firstItem="s5w-4l-cYj" firstAttribute="leading" secondItem="5ko-RE-y4R" secondAttribute="leading" id="Gek-5f-IrM"/>
                             <constraint firstItem="5ko-RE-y4R" firstAttribute="trailing" secondItem="s5w-4l-cYj" secondAttribute="trailing" id="JuT-un-t53"/>
+                            <constraint firstItem="5ko-RE-y4R" firstAttribute="bottom" secondItem="vyV-s2-AgD" secondAttribute="bottom" constant="8" id="dXe-Rq-npd"/>
                             <constraint firstItem="vGq-SY-IeM" firstAttribute="leading" secondItem="5ko-RE-y4R" secondAttribute="leading" constant="8" id="e5P-bB-gSA"/>
                             <constraint firstItem="vGq-SY-IeM" firstAttribute="top" secondItem="s5w-4l-cYj" secondAttribute="bottom" constant="8" id="ogJ-wc-v0A"/>
-                            <constraint firstItem="5ko-RE-y4R" firstAttribute="trailing" secondItem="p1G-he-gbQ" secondAttribute="trailing" constant="16" id="qiH-oZ-lZo"/>
-                            <constraint firstItem="s5w-4l-cYj" firstAttribute="top" secondItem="5ko-RE-y4R" secondAttribute="top" id="xa4-uS-7Yj"/>
+                            <constraint firstItem="vyV-s2-AgD" firstAttribute="leading" secondItem="5ko-RE-y4R" secondAttribute="leading" constant="16" id="qQo-EV-avg"/>
+                            <constraint firstItem="s5w-4l-cYj" firstAttribute="top" secondItem="5ko-RE-y4R" secondAttribute="top" constant="16" id="xa4-uS-7Yj"/>
+                            <constraint firstAttribute="trailing" secondItem="vyV-s2-AgD" secondAttribute="trailing" constant="16" id="xbW-mz-dyu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5ko-RE-y4R"/>
                     </view>
@@ -185,6 +198,7 @@
                         <outlet property="answersTableView" destination="vGq-SY-IeM" id="voR-VL-66X"/>
                         <outlet property="nextQuestionButton" destination="p1G-he-gbQ" id="mVC-MD-Csu"/>
                         <outlet property="questionLabel" destination="s5w-4l-cYj" id="rfa-eu-1F4"/>
+                        <outlet property="resultLabel" destination="iHy-jY-DYA" id="VHa-87-KH8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Myo-ql-ft3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

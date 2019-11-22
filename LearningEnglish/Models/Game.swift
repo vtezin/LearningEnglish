@@ -32,6 +32,8 @@ class Game {
         var countOfWrongAnswers: Int {return articlesOfWrongAnswers.count}
         var articlesOfWrongAnswers: [Article]
         var articlesOfRightAnswers: [Article]
+        
+        var byString: String {return "👍 - \(countOfRightAnswers)   👎 - \(countOfWrongAnswers)"}
     }
     
     /// generating next random question
@@ -43,12 +45,14 @@ class Game {
             return [Article]()
         }
         
+        var articlesWithoutUsed = dictionary.articles.filter{$0 != currentQuestion}
+        
         var answerVariants = [Article]()
         answerVariants.append(self.currentQuestion!)
         
         for _ in 1...countOfAdditionalAnswersVariants {
-            let randomArticle = dictionary.articles.randomElement()!
-            answerVariants.append(randomArticle)
+            let randomArticle = articlesWithoutUsed.randomElement()!
+            answerVariants.append(articlesWithoutUsed.remove(at: articlesWithoutUsed.firstIndex(of: randomArticle)!))
         }
         
         answerVariants.shuffle()
