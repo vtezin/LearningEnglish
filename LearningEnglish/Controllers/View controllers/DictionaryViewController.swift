@@ -49,6 +49,7 @@ extension DictionaryViewController: UITableViewDataSource {
     
 }
 
+// MARK: - Navigation
 extension DictionaryViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

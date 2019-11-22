@@ -14,5 +14,10 @@ class CellController {
         cell.textLabel?.text = article.expression
         cell.detailTextLabel?.text = article.translation
     }
+ 
+    func configureAnswerCell(_ cell: UITableViewCell, with article: Article) {
+        cell.textLabel?.text = article.translation
+        //cell.detailTextLabel?.text = article.translation
+    }
     
 }

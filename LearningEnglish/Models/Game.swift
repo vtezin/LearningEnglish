@@ -37,10 +37,14 @@ class Game {
     /// generating next random question
     func generateCurrentQuestion() -> [Article] {
         
-        let currentQuestion = dictionary.articles.randomElement()!
+        if let currentQuestion = dictionary.articles.randomElement() {
+            self.currentQuestion = currentQuestion
+        } else {
+            return [Article]()
+        }
         
         var answerVariants = [Article]()
-        answerVariants.append(currentQuestion)
+        answerVariants.append(self.currentQuestion!)
         
         for _ in 1...countOfAdditionalAnswersVariants {
             let randomArticle = dictionary.articles.randomElement()!
@@ -54,7 +58,7 @@ class Game {
     }
     
     /// Checking answer & updating result
-    /// - Parameter answer: answer from user
+    /// - Parameter answer: answer given for current question
     func checkAnswerAndUpdateResult(answer: Article) -> Bool {
 
         if answer == currentQuestion {
