@@ -91,5 +91,6 @@ extension DictionaryViewController: UISearchBarDelegate {
         searchBar.text = ""
         articlesFoundedBySearch.removeAll()
         articlesList.reloadData()
+        view.endEditing(true)
     }
 }
