@@ -16,8 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ea5-3P-Lwq">
+                                <rect key="frame" x="0.0" y="20" width="320" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="jlk-Bx-m9v"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="df1-5R-iM7">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="76" width="320" height="443"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ArticleCell" textLabel="35G-Fm-0IN" detailTextLabel="FBG-16-gQu" style="IBUITableViewCellStyleSubtitle" id="OfZ-Gb-fgk">
@@ -53,9 +64,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="df1-5R-iM7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="60i-yb-yHb"/>
-                            <constraint firstItem="df1-5R-iM7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Lix-b3-tFl"/>
+                            <constraint firstItem="df1-5R-iM7" firstAttribute="top" secondItem="Ea5-3P-Lwq" secondAttribute="bottom" id="Lix-b3-tFl"/>
+                            <constraint firstItem="Ea5-3P-Lwq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TVP-cD-yG4"/>
+                            <constraint firstItem="Ea5-3P-Lwq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="WfG-Q5-egP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="df1-5R-iM7" secondAttribute="bottom" id="a7k-5w-zvh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="df1-5R-iM7" secondAttribute="trailing" id="sBA-VH-edC"/>
+                            <constraint firstItem="Ea5-3P-Lwq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wik-fs-bCa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -63,6 +77,7 @@
                     <navigationItem key="navigationItem" id="V99-1T-XTc"/>
                     <connections>
                         <outlet property="articlesList" destination="df1-5R-iM7" id="P8s-iz-kTN"/>
+                        <outlet property="searhBar" destination="Ea5-3P-Lwq" id="Jen-s6-e1z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
