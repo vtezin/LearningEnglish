@@ -28,13 +28,13 @@ class Game {
     
     var unusedArticles: [Article] {
         
-        return dictionary.articles.filter{!result.articlesOfRightAnswers.contains($0)
-            && !result.articlesOfWrongAnswers.contains($0)}
+        return dictionary.articles.filter{!result.articlesOfRightAnswers.contains($0)}
         
     }
     
     /// structure whith result of the game
     struct Result {
+        
         var countOfRightAnswers: Int {return articlesOfRightAnswers.count}
         var countOfWrongAnswers: Int {return articlesOfWrongAnswers.count}
         var articlesOfWrongAnswers: [Article]

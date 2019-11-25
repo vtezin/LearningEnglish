@@ -19,7 +19,6 @@
 		52D978152385268A00D06061 /* LearningEnglish.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52D978132385268A00D06061 /* LearningEnglish.xcdatamodeld */; };
 		52D978172385269000D06061 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52D978162385269000D06061 /* Assets.xcassets */; };
 		52D9781A2385269000D06061 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D978182385269000D06061 /* LaunchScreen.storyboard */; };
-		52D97827238527B800D06061 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D97826238527B800D06061 /* Article.swift */; };
 		52D9782A23852AD400D06061 /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D9782923852AD400D06061 /* LocalData.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		52D978162385269000D06061 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52D978192385269000D06061 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52D9781B2385269000D06061 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52D97826238527B800D06061 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		52D9782923852AD400D06061 /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,7 +130,6 @@
 		52D978252385277800D06061 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				52D97826238527B800D06061 /* Article.swift */,
 				52D7A42023867EF50051682F /* Game.swift */,
 				52D7A42223867FAC0051682F /* LanguageDictionary.swift */,
 			);
@@ -228,7 +225,6 @@
 				52D9780D2385268A00D06061 /* SceneDelegate.swift in Sources */,
 				52C0F848238553E7009C35F0 /* DictionaryViewController.swift in Sources */,
 				52D7A42323867FAC0051682F /* LanguageDictionary.swift in Sources */,
-				52D97827238527B800D06061 /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
