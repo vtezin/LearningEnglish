@@ -10,14 +10,14 @@ import UIKit
 
 class DictionaryViewController: UIViewController {
 
-    //tied controller with view
+    /// tied controller with view
     @IBOutlet weak var articlesList: UITableView!
     
     @IBOutlet weak var searhBar: UISearchBar!
+    /// articles founded by searching mechanizm
     var articlesFoundedBySearch = [Article]()
     
-    
-    //tied controller with model
+    /// tied controller with model
     let dataController = LocalData()
     let cellController = CellController()
     
@@ -88,9 +88,11 @@ extension DictionaryViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        //reset searching
         searchBar.text = ""
         articlesFoundedBySearch.removeAll()
         articlesList.reloadData()
+        //hiding keyboard
         view.endEditing(true)
     }
 }

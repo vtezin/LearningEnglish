@@ -200,6 +200,18 @@ class LocalData {
         articles.append(Article("simultaneous", "одновременно, параллельно"))
         articles.append(Article("slightly", "слегка"))
         
+        articles.append(Article("adversely", "неблагоприятно, враждебно"))
+        articles.append(Article("core", "центр, основной, ядро"))
+        articles.append(Article("dequeue", "убрать из очереди"))
+        articles.append(Article("flow", "поток"))
+        articles.append(Article("inefficient", "неэффективный"))
+        articles.append(Article("somehow", "как-нибудь"))
+        articles.append(Article("adjust", "регулировать, устанавливать"))
+        
+        examples.removeAll()
+        examples.append(Article("data retrieving", "извлечение данных"))
+        articles.append(Article("retrieve", "извлекать, возвращать", examples: examples))
+        
         
         
         examples.removeAll()

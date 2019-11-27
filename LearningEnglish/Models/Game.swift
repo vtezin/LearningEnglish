@@ -19,6 +19,10 @@ class Game {
     /// current (last generated) question
     private(set) var currentQuestion: Article?
     
+    var gameIsFinished: Bool {
+        return unusedArticles.count <= (countOfAdditionalAnswersVariants + 1)
+    }
+    
     init(dictionary: LanguageDictionary, countOfAnswerVariants: Int) {
         self.dictionary = dictionary
         self.countOfAdditionalAnswersVariants = countOfAnswerVariants
@@ -40,13 +44,13 @@ class Game {
         var articlesOfWrongAnswers: [Article]
         var articlesOfRightAnswers: [Article]
         
-        var byString: String {return "👍 - \(countOfRightAnswers)   👎 - \(countOfWrongAnswers)"}
     }
     
     /// generating next random question
+    /// sets currentQuestion property of the Game & return array contains articles with variants for answer
     func generateCurrentQuestion() -> [Article] {
-
-        //TODO: implement checking count of unused articles
+        
+        guard !gameIsFinished else {return [Article]()}
         
         if let currentQuestion = unusedArticles.randomElement() {
             self.currentQuestion = currentQuestion
@@ -72,12 +76,14 @@ class Game {
     
     /// Checking answer & updating result
     /// - Parameter answer: answer given for current question
-    func checkAnswerAndUpdateResult(answer: Article) {
+    func checkAnswerAndUpdateResult(answer: Article) -> Bool {
 
         if answer == currentQuestion {
             result.articlesOfRightAnswers.append(answer)
+            return true
         } else {
             result.articlesOfWrongAnswers.append(answer)
+            return false
         }
 
     }

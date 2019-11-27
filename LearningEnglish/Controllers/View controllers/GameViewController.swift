@@ -21,22 +21,32 @@ class GameViewController: UIViewController {
     private var game: Game!
     private var currentQuestion: Article!
     private var answerVariants = [Article]()
-    private var markCorrectAnswer = false
     private var selectedAnswer: Article!
     
     func updateUIFromModel() {
         questionLabel.text = game.currentQuestion?.expression
         answersTableView.reloadData()
-        resultLabel.text = game.result.byString
+        
+        let resultString = "😍 - \(game.result.countOfRightAnswers)   🤢 - \(game.result.countOfWrongAnswers) (left: \(game.unusedArticles.count))"
+        
+        resultLabel.text = resultString
     }
     
     @IBAction func nextQuestionTouched(_ sender: UIButton) {
-        answerVariants = game.generateCurrentQuestion()
-        markCorrectAnswer = false
-        selectedAnswer = nil
+        
+        generateNextQuestion()
         updateUIFromModel()
+        
     }
     
+    func generateNextQuestion() {
+        
+        guard !game.gameIsFinished else {return}
+        
+        answerVariants = game.generateCurrentQuestion()
+        selectedAnswer = nil
+        
+    }
     
 }
 
@@ -74,16 +84,22 @@ extension GameViewController: UITableViewDataSource {
         let article = answerVariants[indexPath.row]
         cellController.configureAnswerCell(cell, with: article)
         
-        cell.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        
-        if let selectedAnswer = selectedAnswer,
-            article == selectedAnswer,
-            selectedAnswer != game.currentQuestion{
-            cell.backgroundColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
-        }
-        
-        if markCorrectAnswer, article == game.currentQuestion {
-            cell.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        //mark right and wrong answers by background color
+        cell.backgroundColor = UIColor .clear
+
+        if let selectedAnswer = selectedAnswer{
+            
+            //mark right and wrong answers by background color
+            
+            if article == game.currentQuestion {
+                cell.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+            }
+            
+            if article == selectedAnswer, selectedAnswer != game.currentQuestion
+            {
+              cell.backgroundColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
+            }
+            
         }
         
         return cell
@@ -91,18 +107,21 @@ extension GameViewController: UITableViewDataSource {
     
 }
 
+// MARK: - UITableViewDelegate
 extension GameViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedAnswer = answerVariants[indexPath.row]
         
-        game.checkAnswerAndUpdateResult(answer: selectedAnswer)
+        let answerIsCorrect = game.checkAnswerAndUpdateResult(answer: selectedAnswer)
         
-        markCorrectAnswer = true
+        if answerIsCorrect {
+            generateNextQuestion()
+        }
         
         updateUIFromModel()
-        
+                
     }
     
 }
